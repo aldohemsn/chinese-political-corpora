@@ -61,6 +61,13 @@ The `corpus.duckdb` file contains:
     *   Usage: Edit the `TERM` variable in the script and run.
     *   Example: Searching for "综合国力" (Comprehensive National Power).
 
+### Linguistic Analysis (New!)
+*   **Guide**: See [`README_linguistic_analysis.md`](README_linguistic_analysis.md) for a detailed workflow.
+*   `analyze_english_evolution.py`: Tracks translation shifts (e.g., "Overall" vs "Comprehensive") in the local English corpus.
+*   `verify_composite_trend.py`: Verifies the usage of specific terms (e.g., "composite") in recent reports.
+*   `research_us_corpus.js`: Node.js script to call the MCP Corpus Service for US Presidential cross-reference.
+*   `check_ec_dict.js`: Node.js script to query the MCP Dictionary Service.
+
 ## Usage Example
 
 ```python

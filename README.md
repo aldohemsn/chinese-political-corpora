@@ -28,7 +28,27 @@ The `corpus.duckdb` file contains both datasets in separate tables:
 
 ## Scripts
 
-### Scraping
+
+### 3. English Translations of Reports
+*   **Sources**: China.org.cn, Xinhuanet, Marxists Internet Archive, China Daily.
+*   **Table Name**: `reports` (mixed with Government Work Reports, distinguished by `type`).
+*   **Content**: English translations of selected CPC National Congress reports (7th, 9th, 16th, 17th, 18th, 19th, 20th).
+*   **Fields**: `title`, `url`, `content`, `congress` (integer), `type` ('cpc_congress_report'), `reference`.
+
+## Database (`corpus.duckdb`)
+
+The `corpus.duckdb` file contains:
+*   `reports`: Contains Government Work Reports (Chinese) AND English Translations of CPC Congress Reports.
+    *   Columns: `title`, `url`, `content`, `year`, `congress`, `type`, `reference`.
+*   `congress_reports`: Contains CPC National Congress Reports (Chinese).
+
+## Scripts
+
+### Scraping & English Integration
+*   `fetch_english_reports.py`: Scrapes English translations from various official sources.
+*   `scrape_18th_congress.py`: Specifically scrapes the 18th Congress report from China Daily (bilingual source).
+*   `update_db.py`: Updates the `reports` table schema and inserts the English reports.
+*   `export_18th_report.py`: Helper to export the 18th Congress report for review.
 *   `scrape_corpus.py`: Scrapes Government Work Reports.
 *   `scrape_congress.py`: Scrapes CPC Congress Reports (uses `cpc_congress_links.json`).
 
